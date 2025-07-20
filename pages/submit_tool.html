@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit AI Tool - AI Tools Hub</title>
+    <meta name="description" content="Submit your AI tool to our directory. Help the community discover innovative AI solutions with our comprehensive submission form." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Faitoolsh5628back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-secondary-200 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-gradient-to-r from-primary-600 to-accent-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-secondary-900">AI Tools Hub</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-secondary-600 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="search_results.html" class="text-secondary-600 hover:text-primary-600 transition-colors">Browse Tools</a>
+                    <a href="submit_tool.html" class="text-primary-600 font-medium">Submit Tool</a>
+                    <button class="btn-primary">Sign In</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-secondary-600 hover:text-secondary-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-50 via-white to-accent-50 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-secondary-900 mb-4">
+                Submit Your <span class="text-gradient">AI Tool</span>
+            </h1>
+            <p class="text-xl text-secondary-600 mb-6 max-w-2xl mx-auto">
+                Help the community discover innovative AI solutions. Share your tool with thousands of professionals navigating the AI revolution.
+            </p>
+            <div class="flex items-center justify-center space-x-8 text-sm text-secondary-500">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 text-success-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Free Submission
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 text-success-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    24-48h Review
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 text-success-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Instant Visibility
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Form Section -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Progress Indicator -->
+            <div class="mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-medium text-primary-600">Step 1 of 3</span>
+                    <span class="text-sm text-secondary-500">Basic Information</span>
+                </div>
+                <div class="w-full bg-secondary-200 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-primary-600 to-accent-500 h-2 rounded-full transition-all duration-300" style="width: 33%"></div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="card p-8">
+                <form id="submitToolForm" class="space-y-8">
+                    <!-- Step 1: Basic Information -->
+                    <div id="step1" class="space-y-6">
+                        <div class="border-b border-secondary-200 pb-6">
+                            <h2 class="text-2xl font-bold text-secondary-900 mb-2">Basic Information</h2>
+                            <p class="text-secondary-600">Tell us about your AI tool and help users discover what makes it special.</p>
+                        </div>
+
+                        <!-- Tool Name -->
+                        <div>
+                            <label for="toolName" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Tool Name *
+                            </label>
+                            <input type="text" id="toolName" name="toolName" required placeholder="e.g., ChatGPT, Midjourney, GitHub Copilot" class="input-field" />
+                            <p class="text-sm text-secondary-500 mt-1">Enter the official name of your AI tool</p>
+                        </div>
+
+                        <!-- Website URL -->
+                        <div>
+                            <label for="websiteUrl" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Website URL *
+                            </label>
+                            <div class="relative">
+                                <input type="url" id="websiteUrl" name="websiteUrl" required placeholder="https://example.com" class="input-field pl-10" />
+                                <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                </svg>
+                            </div>
+                            <div class="flex items-center mt-2">
+                                <div id="urlStatus" class="hidden">
+                                    <div class="flex items-center text-sm">
+                                        <svg class="w-4 h-4 text-success-500 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="text-success-600">URL is accessible</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category Selection -->
+                        <div>
+                            <label for="category" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Primary Category *
+                            </label>
+                            <select id="category" name="category" required class="input-field">
+                                <option value>Select a category</option>
+                                <option value="content-creation">Content Creation</option>
+                                <option value="code-development">Code & Development</option>
+                                <option value="image-video">Image & Video</option>
+                                <option value="analytics-data">Analytics & Data</option>
+                                <option value="productivity">Productivity</option>
+                                <option value="customer-service">Customer Service</option>
+                                <option value="marketing">Marketing & Sales</option>
+                                <option value="research">Research & Analysis</option>
+                                <option value="design">Design & Creative</option>
+                                <option value="automation">Automation</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <p class="text-sm text-secondary-500 mt-1">Choose the category that best describes your tool's primary function</p>
+                        </div>
+
+                        <!-- Short Description -->
+                        <div>
+                            <label for="shortDescription" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Short Description *
+                            </label>
+                            <textarea id="shortDescription" name="shortDescription" required rows="3" maxlength="160" placeholder="A brief, compelling description of what your AI tool does (160 characters max)" class="input-field resize-none"></textarea>
+                            <div class="flex justify-between items-center mt-1">
+                                <p class="text-sm text-secondary-500">This will appear in search results and tool cards</p>
+                                <span id="charCount" class="text-sm text-secondary-400">0/160</span>
+                            </div>
+                        </div>
+
+                        <!-- Tags -->
+                        <div>
+                            <label for="tags" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Tags
+                            </label>
+                            <input type="text" id="tags" name="tags" placeholder="e.g., AI writing, content generation, GPT, automation" class="input-field" />
+                            <p class="text-sm text-secondary-500 mt-1">Add relevant tags separated by commas to help users find your tool</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Detailed Information (Hidden initially) -->
+                    <div id="step2" class="hidden space-y-6">
+                        <div class="border-b border-secondary-200 pb-6">
+                            <h2 class="text-2xl font-bold text-secondary-900 mb-2">Detailed Information</h2>
+                            <p class="text-secondary-600">Provide comprehensive details to help users understand your tool's capabilities.</p>
+                        </div>
+
+                        <!-- Pricing Model -->
+                        <div>
+                            <label class="block text-sm font-semibold text-secondary-900 mb-3">
+                                Pricing Model *
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="relative">
+                                    <input type="radio" name="pricingModel" value="free" class="sr-only peer" />
+                                    <div class="card p-4 cursor-pointer peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:border-primary-500">
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 bg-success-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                                <svg class="w-5 h-5 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="font-semibold text-secondary-900">Free</h3>
+                                            <p class="text-sm text-secondary-600">Completely free to use</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="relative">
+                                    <input type="radio" name="pricingModel" value="freemium" class="sr-only peer" />
+                                    <div class="card p-4 cursor-pointer peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:border-primary-500">
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                                <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="font-semibold text-secondary-900">Freemium</h3>
+                                            <p class="text-sm text-secondary-600">Free with paid upgrades</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="relative">
+                                    <input type="radio" name="pricingModel" value="paid" class="sr-only peer" />
+                                    <div class="card p-4 cursor-pointer peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:border-primary-500">
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 bg-warning-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                                <svg class="w-5 h-5 text-warning-600" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-3.84 3.11-4.1V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 4.15-3.12 4.16z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="font-semibold text-secondary-900">Paid</h3>
+                                            <p class="text-sm text-secondary-600">Subscription or one-time</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Pricing Details -->
+                        <div id="pricingDetails" class="hidden">
+                            <label for="pricingInfo" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Pricing Details
+                            </label>
+                            <input type="text" id="pricingInfo" name="pricingInfo" placeholder="e.g., $20/month, $199/year, Starting at $10/month" class="input-field" />
+                            <p class="text-sm text-secondary-500 mt-1">Provide specific pricing information</p>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div>
+                            <label class="block text-sm font-semibold text-secondary-900 mb-3">
+                                Key Features *
+                            </label>
+                            <div class="space-y-3">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="features" value="api-access" class="rounded border-secondary-300 text-primary-600 focus:ring-primary-500" />
+                                        <span class="ml-2 text-sm text-secondary-700">API Access</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="features" value="real-time" class="rounded border-secondary-300 text-primary-600 focus:ring-primary-500" />
+                                        <span class="ml-2 text-sm text-secondary-700">Real-time Processing</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="features" value="batch-processing" class="rounded border-secondary-300 text-primary-600 focus:ring-primary-500" />
+                                        <span class="ml-2 text-sm text-secondary-700">Batch Processing</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="features" value="custom-models" class="rounded border-secondary-300 text-primary-600 focus:ring-primary-500" />
+                                        <span class="ml-2 text-sm text-secondary-700">Custom Models</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="features" value="integrations" class="rounded border-secondary-300 text-primary-600 focus:ring-primary-500" />
+                                        <span class="ml-2 text-sm text-secondary-700">Third-party Integrations</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="features" value="collaboration" class="rounded border-secondary-300 text-primary-600 focus:ring-primary-500" />
+                                        <span class="ml-2 text-sm text-secondary-700">Team Collaboration</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="text" name="customFeatures" placeholder="Add custom features separated by commas" class="input-field" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Target Audience -->
+                        <div>
+                            <label for="targetAudience" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Target Audience
+                            </label>
+                            <select id="targetAudience" name="targetAudience" class="input-field">
+                                <option value>Select primary audience</option>
+                                <option value="developers">Developers & Engineers</option>
+                                <option value="designers">Designers & Creatives</option>
+                                <option value="marketers">Marketers & Sales</option>
+                                <option value="content-creators">Content Creators</option>
+                                <option value="business-analysts">Business Analysts</option>
+                                <option value="researchers">Researchers & Scientists</option>
+                                <option value="students">Students & Educators</option>
+                                <option value="general">General Users</option>
+                            </select>
+                        </div>
+
+                        <!-- Detailed Description -->
+                        <div>
+                            <label for="detailedDescription" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Detailed Description *
+                            </label>
+                            <textarea id="detailedDescription" name="detailedDescription" required rows="6" maxlength="1000" placeholder="Provide a comprehensive description of your AI tool, its capabilities, use cases, and what makes it unique..." class="input-field resize-none"></textarea>
+                            <div class="flex justify-between items-center mt-1">
+                                <p class="text-sm text-secondary-500">This will appear on your tool's detail page</p>
+                                <span id="detailedCharCount" class="text-sm text-secondary-400">0/1000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Media & Final Details (Hidden initially) -->
+                    <div id="step3" class="hidden space-y-6">
+                        <div class="border-b border-secondary-200 pb-6">
+                            <h2 class="text-2xl font-bold text-secondary-900 mb-2">Media & Final Details</h2>
+                            <p class="text-secondary-600">Add visual content and complete your submission.</p>
+                        </div>
+
+                        <!-- Logo Upload -->
+                        <div>
+                            <label class="block text-sm font-semibold text-secondary-900 mb-3">
+                                Tool Logo *
+                            </label>
+                            <div class="border-2 border-dashed border-secondary-300 rounded-lg p-6 text-center hover:border-primary-400 transition-colors">
+                                <div class="space-y-2">
+                                    <svg class="mx-auto h-12 w-12 text-secondary-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <div class="text-sm text-secondary-600">
+                                        <label for="logoUpload" class="cursor-pointer">
+                                            <span class="text-primary-600 hover:text-primary-700 font-medium">Upload a logo</span>
+                                            <span> or drag and drop</span>
+                                        </label>
+                                        <input id="logoUpload" name="logoUpload" type="file" accept="image/*" class="sr-only" />
+                                    </div>
+                                    <p class="text-xs text-secondary-500">PNG, JPG up to 2MB (recommended: 512x512px)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Screenshots -->
+                        <div>
+                            <label class="block text-sm font-semibold text-secondary-900 mb-3">
+                                Screenshots (Optional)
+                            </label>
+                            <div class="border-2 border-dashed border-secondary-300 rounded-lg p-6 text-center hover:border-primary-400 transition-colors">
+                                <div class="space-y-2">
+                                    <svg class="mx-auto h-12 w-12 text-secondary-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                        <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <div class="text-sm text-secondary-600">
+                                        <label for="screenshotUpload" class="cursor-pointer">
+                                            <span class="text-primary-600 hover:text-primary-700 font-medium">Upload screenshots</span>
+                                            <span> or drag and drop</span>
+                                        </label>
+                                        <input id="screenshotUpload" name="screenshotUpload" type="file" accept="image/*" multiple class="sr-only" />
+                                    </div>
+                                    <p class="text-xs text-secondary-500">PNG, JPG up to 5MB each (max 5 images)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="contactName" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                    Contact Name *
+                                </label>
+                                <input type="text" id="contactName" name="contactName" required placeholder="Your full name" class="input-field" />
+                            </div>
+                            <div>
+                                <label for="contactEmail" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                    Contact Email *
+                                </label>
+                                <input type="email" id="contactEmail" name="contactEmail" required placeholder="your@email.com" class="input-field" />
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div>
+                            <label for="additionalInfo" class="block text-sm font-semibold text-secondary-900 mb-2">
+                                Additional Information
+                            </label>
+                            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Any additional information you'd like to share about your tool, special features, or submission notes..." class="input-field resize-none"></textarea>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="bg-secondary-50 rounded-lg p-6">
+                            <div class="flex items-start">
+                                <input type="checkbox" id="agreeTerms" name="agreeTerms" required class="mt-1 rounded border-secondary-300 text-primary-600 focus:ring-primary-500" />
+                                <div class="ml-3">
+                                    <label for="agreeTerms" class="text-sm font-medium text-secondary-900">
+                                        I agree to the submission terms and conditions *
+                                    </label>
+                                    <p class="text-sm text-secondary-600 mt-1">
+                                        By submitting this tool, you confirm that you have the right to submit this information and agree to our 
+                                        <a href="javascript:void(0)" class="text-primary-600 hover:text-primary-700">terms of service</a> and 
+                                        <a href="javascript:void(0)" class="text-primary-600 hover:text-primary-700">privacy policy</a>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Navigation -->
+                    <div class="flex justify-between items-center pt-6 border-t border-secondary-200">
+                        <button type="button" id="prevBtn" class="btn-secondary hidden">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                            Previous
+                        </button>
+                        
+                        <div class="flex space-x-4 ml-auto">
+                            <button type="button" id="saveDraftBtn" class="text-secondary-600 hover:text-secondary-800 font-medium px-4 py-2">
+                                Save Draft
+                            </button>
+                            <button type="button" id="nextBtn" class="btn-primary">
+                                Next Step
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                            <button type="submit" id="submitBtn" class="btn-primary hidden">
+                                Submit Tool
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Guidelines Sidebar -->
+    <div class="fixed right-4 top-1/2 transform -translate-y-1/2 w-80 bg-white rounded-lg shadow-confident border border-secondary-200 p-6 hidden lg:block">
+        <h3 class="font-semibold text-secondary-900 mb-4 flex items-center">
+            <svg class="w-5 h-5 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Submission Guidelines
+        </h3>
+        <div class="space-y-4 text-sm">
+            <div>
+                <h4 class="font-medium text-secondary-800 mb-2">✅ What makes a great submission:</h4>
+                <ul class="space-y-1 text-secondary-600">
+                    <li>• Clear, descriptive tool name</li>
+                    <li>• Comprehensive feature description</li>
+                    <li>• High-quality logo and screenshots</li>
+                    <li>• Accurate pricing information</li>
+                    <li>• Relevant tags and categories</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-medium text-secondary-800 mb-2">❌ What to avoid:</h4>
+                <ul class="space-y-1 text-secondary-600">
+                    <li>• Duplicate submissions</li>
+                    <li>• Incomplete information</li>
+                    <li>• Low-quality images</li>
+                    <li>• Misleading descriptions</li>
+                    <li>• Broken or invalid URLs</li>
+                </ul>
+            </div>
+            <div class="bg-primary-50 rounded-lg p-3">
+                <p class="text-primary-700 text-xs">
+                    <strong>Pro Tip:</strong> Tools with complete information and quality visuals get approved faster and receive better visibility!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-primary-600 to-accent-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">AI Tools Hub</span>
+                    </div>
+                    <p class="text-secondary-400 mb-4 max-w-md">
+                        Your trusted guide to discover, compare, and find the perfect AI tools for every task. Join thousands of professionals navigating the AI revolution.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-secondary-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Discover</h3>
+                    <ul class="space-y-2 text-secondary-400">
+                        <li><a href="search_results.html" class="hover:text-white transition-colors">Browse Tools</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Categories</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Collections</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Trending</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Community</h3>
+                    <ul class="space-y-2 text-secondary-400">
+                        <li><a href="submit_tool.html" class="hover:text-white transition-colors">Submit Tool</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-colors">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-secondary-400 text-sm">
+                    © 2025 AI Tools Hub. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-secondary-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-secondary-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="text-secondary-400 hover:text-white text-sm transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Functionality -->
+    <script>
+        // Form step management
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        // Character count functionality
+        const shortDesc = document.getElementById('shortDescription');
+        const charCount = document.getElementById('charCount');
+        const detailedDesc = document.getElementById('detailedDescription');
+        const detailedCharCount = document.getElementById('detailedCharCount');
+
+        shortDesc.addEventListener('input', function() {
+            charCount.textContent = `${this.value.length}/160`;
+        });
+
+        detailedDesc.addEventListener('input', function() {
+            detailedCharCount.textContent = `${this.value.length}/1000`;
+        });
+
+        // Pricing model change handler
+        const pricingRadios = document.querySelectorAll('input[name="pricingModel"]');
+        const pricingDetails = document.getElementById('pricingDetails');
+
+        pricingRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'freemium' || this.value === 'paid') {
+                    pricingDetails.classList.remove('hidden');
+                } else {
+                    pricingDetails.classList.add('hidden');
+                }
+            });
+        });
+
+        // Step navigation
+        function updateProgressBar() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.querySelector('.bg-gradient-to-r').style.width = `${progress}%`;
+            
+            const stepText = document.querySelector('.text-sm.text-secondary-500');
+            const stepNumber = document.querySelector('.text-sm.font-medium.text-primary-600');
+            
+            stepNumber.textContent = `Step ${currentStep} of ${totalSteps}`;
+            
+            const stepNames = ['Basic Information', 'Detailed Information', 'Media & Final Details'];
+            stepText.textContent = stepNames[currentStep - 1];
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById(`step${i}`).classList.add('hidden');
+            }
+            
+            // Show current step
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (step === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+            
+            if (step === totalSteps) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+            
+            updateProgressBar();
+        }
+
+        // Navigation event listeners
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+
+        // Save draft functionality
+        document.getElementById('saveDraftBtn').addEventListener('click', function() {
+            // Simulate saving draft
+            alert('Draft saved successfully! You can return to complete your submission later.');
+        });
+
+        // Form submission
+        document.getElementById('submitToolForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            alert('Thank you for your submission! Your tool will be reviewed within 24-48 hours. You will receive an email confirmation shortly.');
+            
+            // Redirect to homepage
+            window.location.href = 'homepage.html';
+        });
+
+        // URL validation
+        document.getElementById('websiteUrl').addEventListener('blur', function() {
+            const url = this.value;
+            const urlStatus = document.getElementById('urlStatus');
+            
+            if (url && url.startsWith('http')) {
+                // Simulate URL validation
+                setTimeout(() => {
+                    urlStatus.classList.remove('hidden');
+                }, 500);
+            } else {
+                urlStatus.classList.add('hidden');
+            }
+        });
+
+        // Initialize form
+        showStep(1);
+    </script>
+</body>
+</html>

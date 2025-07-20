@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results - AI Tools Hub</title>
+    <meta name="description" content="Discover AI tools that match your needs. Advanced search with intelligent filtering and contextual results." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Faitoolsh5628back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-secondary-200 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-gradient-to-r from-primary-600 to-accent-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-secondary-900">AI Tools Hub</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-secondary-600 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="search_results.html" class="text-primary-600 font-medium">Browse Tools</a>
+                    <a href="submit_tool.html" class="text-secondary-600 hover:text-primary-600 transition-colors">Submit Tool</a>
+                    <button class="btn-primary">Sign In</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-secondary-600 hover:text-secondary-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Header Section -->
+    <section class="bg-white border-b border-secondary-200 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Enhanced Search Bar -->
+            <div class="relative max-w-4xl mx-auto mb-6">
+                <div class="relative">
+                    <input type="text" id="main-search" placeholder="Search AI tools... (e.g., content creation AI, code assistant)" class="w-full px-6 py-4 pl-12 pr-32 text-lg border border-secondary-200 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 shadow-confident" />
+                    <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <div class="absolute right-2 top-1/2 transform -translate-y-1/2 flex space-x-2">
+                        <button class="bg-secondary-100 text-secondary-600 p-2 rounded-lg hover:bg-secondary-200 transition-colors" title="Voice Search">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                            </svg>
+                        </button>
+                        <button onclick="performSearch()" class="bg-primary-600 text-white px-6 py-2 rounded-xl hover:bg-primary-700 transition-colors">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Results Summary -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <h1 class="text-2xl font-bold text-secondary-900">Search Results</h1>
+                    <span class="text-secondary-600" id="results-summary">Loading...</span>
+                </div>
+                
+                <!-- Sort Options -->
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-secondary-600">Sort by:</span>
+                    <select id="sort-select" class="border border-secondary-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500" onchange="applySorting()">
+                        <option value="relevance">Relevance</option>
+                        <option value="rating">Rating</option>
+                        <option value="name">Name</option>
+                        <option value="pricing">Pricing</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Quick Filter Chips -->
+            <div class="flex flex-wrap gap-2 mt-4" id="active-filters">
+                <!-- Active filters will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filter Sidebar -->
+            <aside class="lg:w-80 flex-shrink-0">
+                <div class="sticky top-24">
+                    <!-- Filter Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-semibold text-secondary-900">Filters</h2>
+                        <button onclick="clearAllFilters()" class="text-primary-600 hover:text-primary-700 text-sm font-medium">Clear All</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="card p-4 mb-6">
+                        <h3 class="font-semibold text-secondary-900 mb-3">Category</h3>
+                        <div class="space-y-2 max-h-64 overflow-y-auto" id="category-filters">
+                            <!-- Category filters will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Pricing Filter -->
+                    <div class="card p-4 mb-6">
+                        <h3 class="font-semibold text-secondary-900 mb-3">Pricing</h3>
+                        <div class="space-y-2" id="pricing-filters">
+                            <label class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <input type="checkbox" value="Free" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                                    <span class="ml-2 text-sm text-secondary-700">Free</span>
+                                </div>
+                                <span class="text-xs text-secondary-500" id="free-count">0</span>
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <input type="checkbox" value="Freemium" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                                    <span class="ml-2 text-sm text-secondary-700">Freemium</span>
+                                </div>
+                                <span class="text-xs text-secondary-500" id="freemium-count">0</span>
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <input type="checkbox" value="Paid" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                                    <span class="ml-2 text-sm text-secondary-700">Paid</span>
+                                </div>
+                                <span class="text-xs text-secondary-500" id="paid-count">0</span>
+                            </label>
+                            <label class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <input type="checkbox" value="Enterprise" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                                    <span class="ml-2 text-sm text-secondary-700">Enterprise</span>
+                                </div>
+                                <span class="text-xs text-secondary-500" id="enterprise-count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="card p-4 mb-6">
+                        <h3 class="font-semibold text-secondary-900 mb-3">Rating</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" value="5" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                                <span class="ml-2 flex items-center text-sm text-secondary-700">
+                                    <div class="flex text-warning-500 mr-2">★★★★★</div>
+                                    5 Stars
+                                </span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" value="4" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                                <span class="ml-2 flex items-center text-sm text-secondary-700">
+                                    <div class="flex text-warning-500 mr-2">★★★★☆</div>
+                                    4+ Stars
+                                </span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" value="3" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                                <span class="ml-2 flex items-center text-sm text-secondary-700">
+                                    <div class="flex text-warning-500 mr-2">★★★☆☆</div>
+                                    3+ Stars
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Results Content -->
+            <main class="flex-1">
+                <!-- Results Grid -->
+                <section>
+                    <div class="space-y-4" id="results-container">
+                        <!-- Results will be populated here -->
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-8" id="load-more-container" style="display: none;">
+                        <button onclick="loadMoreResults()" class="btn-secondary">
+                            Load More Results
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- No Results Message -->
+                <div id="no-results" class="text-center py-12" style="display: none;">
+                    <svg class="mx-auto h-24 w-24 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <h3 class="mt-4 text-lg font-medium text-secondary-900">No tools found</h3>
+                    <p class="mt-2 text-secondary-600">Try adjusting your search terms or filters to find what you're looking for.</p>
+                    <button onclick="clearAllFilters()" class="mt-4 btn-primary">Clear All Filters</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-primary-600 to-accent-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">AI Tools Hub</span>
+                    </div>
+                    <p class="text-secondary-400 mb-4 max-w-md">
+                        Your trusted guide to discover, compare, and find the perfect AI tools for every task. Join thousands of professionals navigating the AI revolution.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-secondary-400 text-sm">
+                    © 2025 AI Tools Hub. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../public/tools-database.js"></script>
+    <script>
+        // Global variables
+        let currentResults = [];
+        let displayedResults = [];
+        let currentPage = 0;
+        const resultsPerPage = 10;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+            setupEventListeners();
+        });
+
+        function initializePage() {
+            loadCategoryFilters();
+            loadPricingCounts();
+            
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            const category = urlParams.get('category');
+            
+            if (query) {
+                document.getElementById('main-search').value = query;
+                performSearch();
+            } else if (category) {
+                filterByCategory(category);
+            } else {
+                // Show all tools by default
+                currentResults = TOOLS_DATABASE.tools;
+                displayResults();
+            }
+        }
+
+        function setupEventListeners() {
+            document.getElementById('main-search').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        function loadCategoryFilters() {
+            const categoryContainer = document.getElementById('category-filters');
+            categoryContainer.innerHTML = TOOLS_DATABASE.categories.map(category => {
+                const count = TOOLS_DATABASE.getToolsByCategory(category).length;
+                return `
+                    <label class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" value="${category}" onchange="applyFilters()" class="text-primary-600 focus:ring-primary-500" />
+                            <span class="ml-2 text-sm text-secondary-700">${category}</span>
+                        </div>
+                        <span class="text-xs text-secondary-500">${count}</span>
+                    </label>
+                `;
+            }).join('');
+        }
+
+        function loadPricingCounts() {
+            const pricingTypes = ['Free', 'Freemium', 'Paid', 'Enterprise'];
+            pricingTypes.forEach(type => {
+                const count = TOOLS_DATABASE.getToolsByPricing(type).length;
+                const element = document.getElementById(`${type.toLowerCase()}-count`);
+                if (element) {
+                    element.textContent = count;
+                }
+            });
+        }
+
+        function performSearch() {
+            const query = document.getElementById('main-search').value.trim();
+            if (query) {
+                currentResults = TOOLS_DATABASE.searchTools(query);
+            } else {
+                currentResults = TOOLS_DATABASE.tools;
+            }
+            
+            // Update URL
+            const url = new URL(window.location);
+            if (query) {
+                url.searchParams.set('q', query);
+            } else {
+                url.searchParams.delete('q');
+            }
+            window.history.pushState({}, '', url);
+            
+            applyFilters();
+        }
+
+        function filterByCategory(category) {
+            currentResults = TOOLS_DATABASE.getToolsByCategory(category);
+            
+            // Check the category filter
+            const categoryCheckbox = document.querySelector(`input[value="${category}"]`);
+            if (categoryCheckbox) {
+                categoryCheckbox.checked = true;
+            }
+            
+            displayResults();
+        }
+
+        function applyFilters() {
+            let filteredResults = [...currentResults];
+            
+            // Category filters
+            const selectedCategories = Array.from(document.querySelectorAll('#category-filters input:checked')).map(cb => cb.value);
+            if (selectedCategories.length > 0) {
+                filteredResults = filteredResults.filter(tool => selectedCategories.includes(tool.category));
+            }
+            
+            // Pricing filters
+            const selectedPricing = Array.from(document.querySelectorAll('#pricing-filters input:checked')).map(cb => cb.value);
+            if (selectedPricing.length > 0) {
+                filteredResults = filteredResults.filter(tool => selectedPricing.includes(tool.pricing));
+            }
+            
+            // Rating filters
+            const selectedRatings = Array.from(document.querySelectorAll('input[type="checkbox"][value]:checked')).filter(cb => !isNaN(cb.value)).map(cb => parseInt(cb.value));
+            if (selectedRatings.length > 0) {
+                const minRating = Math.min(...selectedRatings);
+                filteredResults = filteredResults.filter(tool => tool.rating >= minRating);
+            }
+            
+            displayedResults = filteredResults;
+            displayResults();
+            updateActiveFilters(selectedCategories, selectedPricing, selectedRatings);
+        }
+
+        function applySorting() {
+            const sortBy = document.getElementById('sort-select').value;
+            
+            switch (sortBy) {
+                case 'rating':
+                    displayedResults.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'name':
+                    displayedResults.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'pricing':
+                    const pricingOrder = { 'Free': 0, 'Freemium': 1, 'Paid': 2, 'Enterprise': 3 };
+                    displayedResults.sort((a, b) => pricingOrder[a.pricing] - pricingOrder[b.pricing]);
+                    break;
+                default: // relevance
+                    // Keep original order or apply relevance sorting
+                    break;
+            }
+            
+            displayResults();
+        }
+
+        function displayResults() {
+            currentPage = 0;
+            renderResults();
+        }
+
+        function renderResults() {
+            const startIndex = currentPage * resultsPerPage;
+            const endIndex = startIndex + resultsPerPage;
+            const pageResults = displayedResults.slice(0, endIndex);
+            
+            const resultsContainer = document.getElementById('results-container');
+            const noResultsDiv = document.getElementById('no-results');
+            const loadMoreContainer = document.getElementById('load-more-container');
+            
+            // Update results summary
+            document.getElementById('results-summary').textContent = 
+                `${displayedResults.length} tools found`;
+            
+            if (displayedResults.length === 0) {
+                resultsContainer.style.display = 'none';
+                loadMoreContainer.style.display = 'none';
+                noResultsDiv.style.display = 'block';
+                return;
+            }
+            
+            noResultsDiv.style.display = 'none';
+            resultsContainer.style.display = 'block';
+            
+            resultsContainer.innerHTML = pageResults.map(tool => `
+                <div class="card p-6 hover:shadow-lg transition-all group cursor-pointer" onclick="goToToolDetail('${tool.id}')">
+                    <div class="flex items-start space-x-4">
+                        <img src="https://images.pixabay.com/photo-2023/01/26/22/14/ai-generated-7747171_1280.jpg" alt="${tool.name}" class="w-12 h-12 rounded-lg object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-2">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-secondary-900 group-hover:text-primary-600 transition-colors">${tool.name}</h3>
+                                    <p class="text-sm text-secondary-500">${tool.category}</p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-secondary-400 hover:text-primary-600 transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-secondary-600 mb-3">${tool.description}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center">
+                                        <div class="flex text-warning-500 text-sm">${'★'.repeat(Math.floor(tool.rating))}${'☆'.repeat(5 - Math.floor(tool.rating))}</div>
+                                        <span class="text-sm text-secondary-500 ml-1">${tool.rating}</span>
+                                    </div>
+                                    <span class="text-sm font-medium ${getPricingColor(tool.pricing)}">${tool.pricing}</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    ${tool.features.slice(0, 2).map(feature => `
+                                        <span class="bg-accent-100 text-accent-600 text-xs px-2 py-1 rounded-full">${feature}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Show/hide load more button
+            if (endIndex < displayedResults.length) {
+                loadMoreContainer.style.display = 'block';
+            } else {
+                loadMoreContainer.style.display = 'none';
+            }
+        }
+
+        function loadMoreResults() {
+            currentPage++;
+            renderResults();
+        }
+
+        function getPricingColor(pricing) {
+            switch (pricing) {
+                case 'Free': return 'text-success-600';
+                case 'Freemium': return 'text-primary-600';
+                case 'Paid': return 'text-secondary-600';
+                case 'Enterprise': return 'text-accent-600';
+                default: return 'text-secondary-600';
+            }
+        }
+
+        function updateActiveFilters(categories, pricing, ratings) {
+            const activeFiltersContainer = document.getElementById('active-filters');
+            const filters = [];
+            
+            categories.forEach(cat => filters.push({ type: 'category', value: cat, display: cat }));
+            pricing.forEach(price => filters.push({ type: 'pricing', value: price, display: price }));
+            ratings.forEach(rating => filters.push({ type: 'rating', value: rating, display: `${rating}+ Stars` }));
+            
+            activeFiltersContainer.innerHTML = filters.map(filter => `
+                <button onclick="removeFilter('${filter.type}', '${filter.value}')" class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                    ${filter.display}
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            `).join('');
+        }
+
+        function removeFilter(type, value) {
+            const checkbox = document.querySelector(`input[value="${value}"]`);
+            if (checkbox) {
+                checkbox.checked = false;
+            }
+            applyFilters();
+        }
+
+        function clearAllFilters() {
+            // Uncheck all checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.getElementById('main-search').value = '';
+            
+            // Reset results
+            currentResults = TOOLS_DATABASE.tools;
+            displayedResults = currentResults;
+            displayResults();
+            
+            // Clear active filters
+            document.getElementById('active-filters').innerHTML = '';
+        }
+
+        function goToToolDetail(toolId) {
+            window.location.href = `tool_detail_page.html?id=${toolId}`;
+        }
+    </script>
+</body>
+</html>
